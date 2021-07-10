@@ -10,10 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_10_022549) do
+ActiveRecord::Schema.define(version: 2021_07_10_160017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "title"
+    t.string "company"
+    t.string "title_desc"
+    t.string "link_url"
+    t.date "end_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reflections", force: :cascade do |t|
+    t.text "summary"
+    t.text "did_right"
+    t.text "do_better"
+    t.bigint "tracker_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tracker_id"], name: "index_reflections_on_tracker_id"
+  end
+
+  create_table "trackers", force: :cascade do |t|
+    t.string "steps_taken"
+    t.boolean "applied_status"
+    t.date "interview_date"
+    t.date "follow_up"
+    t.bigint "job_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["job_id"], name: "index_trackers_on_job_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
@@ -45,4 +76,6 @@ ActiveRecord::Schema.define(version: 2021_07_10_022549) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "reflections", "trackers"
+  add_foreign_key "trackers", "jobs"
 end

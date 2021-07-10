@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  steps_taken: MyString
+  applied_status: false
+  interview_date: 2021-07-10
+  follow_up: 2021-07-10
+  job: one
+
+two:
+  steps_taken: MyString
+  applied_status: false
+  interview_date: 2021-07-10
+  follow_up: 2021-07-10
+  job: two
