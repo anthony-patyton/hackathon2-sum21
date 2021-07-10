@@ -9,7 +9,9 @@ const Navbar = ({ user, handleLogout, history }) => {
         return(
           <Menu position='right'>
             <Link onClick={() => handleLogout(history) }>
-              Logout
+              <Menu.Item>
+                Logout
+              </Menu.Item>
              </Link>           
           </Menu>
         )
