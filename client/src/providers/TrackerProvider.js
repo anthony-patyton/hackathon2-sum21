@@ -6,24 +6,24 @@ export const TrackerConsumer = TrackerContext.Consumer;
 
 const TrackerProvider = ({children}) => {
   const [trackers, setTrackers] = useState([])
-  const getAllTrackers = () => {
-    axios.get(`/api/jobs/${id}/trackers`)
+  const getAllTrackers = (jobId) => {
+    axios.get(`/api/jobs/${jobId}/trackers`)
       .then( res => {
         setTrackers(res.data)
       })
       .catch( err => console.log(err) )
   }
   
-  const addTracker = (tracker) => {
-    axios.post(`/api/jobs/${id}/trackers`, {tracker} )
+  const addTracker = (tracker, jobId) => {
+    axios.post(`/api/jobs/${jobId}/trackers`, {tracker} )
       .then( res => {
         setTrackers([...trackers, res.data])
       })
       .catch( err => console.log(err) )
   }
 
-  const updateTracker = (id, tracker, history) => {
-    axios.put(`/api/jobs/${id}/trackers/${id}`, {tracker} )
+  const updateTracker = (id, tracker, history, jobId) => {
+    axios.put(`/api/jobs/${jobId}/trackers/${id}`, {tracker} )
       .then( res => {
         const updatedTrackers = trackers.map( t => {
           if (trackers.id == id) {
@@ -37,8 +37,8 @@ const TrackerProvider = ({children}) => {
       .catch( err => console.log(err) )
   }
 
-  const deleteTracker = (id, history) => {
-    axios.delete(`/api/jobs/${id}/trackers/${id}`)
+  const deleteTracker = (id, history, jobId) => {
+    axios.delete(`/api/jobs/${jobId}/trackers/${id}`)
       .then( res => {
         setTrackers(trackers.filter( t => t.id !== id))
         alert(res.data.message)
