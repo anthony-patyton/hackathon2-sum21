@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AuthConsumer } from "../../providers/AuthProvider";
+import { BackgroundStyles } from '../styledComponents/sharedStyles';
 
 const Login = ({ handleLogin, history }) => {
   const [user, setUser] = useState({ email: '', password: '' })
@@ -11,6 +12,7 @@ const Login = ({ handleLogin, history }) => {
   
   return (
     <>
+    <BackgroundStyles>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <input
@@ -32,6 +34,7 @@ const Login = ({ handleLogin, history }) => {
         />
         <button type='submit'>Submit</button>
       </form>
+      </BackgroundStyles>
     </>
   )
   

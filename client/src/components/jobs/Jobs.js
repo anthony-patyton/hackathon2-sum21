@@ -1,12 +1,19 @@
-import { Header, } from 'semantic-ui-react';
+import { Header } from 'semantic-ui-react';
 import JobList from './JobList';
+import { BackgroundStyles } from '../styledComponents/sharedStyles';
+
 
 const Jobs = () => (
   <>
+    
+  <BackgroundStyles>
     <Header>
-      Job Page
+      All Jobs
+    
     </Header>
     <JobList />
+  </BackgroundStyles>
+   
   </>
 )
 
