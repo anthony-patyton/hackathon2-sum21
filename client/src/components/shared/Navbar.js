@@ -17,10 +17,14 @@ const Navbar = ({ user, handleLogout, history }) => {
         return (
           <Menu position='right'>
             <Link onClick='/login'>
-               Login
+              <Menu.Item>
+                Login
+               </Menu.Item>
              </Link>
             <Link onClick='/register'>
-               Register
+              <Menu.Item>
+                Register
+               </Menu.Item>
             </Link>
           </Menu>
         )
@@ -31,7 +35,8 @@ const Navbar = ({ user, handleLogout, history }) => {
       <Menu>
         <Link onClick='/'>
           <img src="https://res.cloudinary.com/dg1eqxvwf/image/upload/v1625945177/logo_jeiv9n.png"
-          size='small'
+          width='130'
+          length='30'
           />
         </Link>
         { rightNavItems()}
