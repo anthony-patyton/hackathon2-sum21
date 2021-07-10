@@ -6,6 +6,8 @@ import Register from './components/auth/Register';
 import Navbar from './components/shared/Navbar';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import Jobs from './components/jobs/Jobs';
+import JobForm from './components/jobs/JobForm';
 
 const App = () => (
   <>
@@ -15,6 +17,8 @@ const App = () => (
         <ProtectedRoute exact path='/' component={Home} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
+        <Route exact path='/jobs' component={Jobs} />
+        <Route exact path='/jobform' component={JobForm} />
         <Route component={Nomatch} />
       </Switch>
     </FetchUser>

@@ -1,15 +1,13 @@
 import { Header, } from 'semantic-ui-react';
 import JobList from './JobList';
-// import JobForm from './JobForm';
 
-const Jobs = () => {
+const Jobs = () => (
   <>
     <Header>
       All Jobs
-    </Header>
     <JobList />
-      {/* <JobForm />   */}
+    </Header>
   </>
-}
+)
 
 export default Jobs;
