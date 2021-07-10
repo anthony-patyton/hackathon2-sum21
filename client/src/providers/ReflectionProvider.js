@@ -26,7 +26,7 @@ const ReflectionProvider = ({children}) => {
     axios.put(`/api/trackers/${trackerId}/reflections/${id}`, {reflection} )
       .then( res => {
         const updatedReflections = reflections.map( r => {
-          if (reflections.id == id) {
+          if (reflections.id === id) {
             return res.data
           }
           return r

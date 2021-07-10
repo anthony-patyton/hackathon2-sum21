@@ -8,24 +8,36 @@ const Navbar = ({ user, handleLogout, history }) => {
       if (user) {
         return(
           <Menu position='right'>
-            <Link onClick={() => handleLogout(history) }>
-              Logout
-             </Link>           
+            <Menu.Item>
+              <Link onClick={() => handleLogout(history) }>
+                Logout
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/">
+                Home
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/jobs">
+                Jobs
+              </Link>
+            </Menu.Item>
           </Menu>
         )
       } else {
         return (
           <Menu position='right'>
-            <Link onClick='/login'>
-              <Menu.Item>
+            <Menu.Item>
+              <Link to='/login'>
                 Login
-               </Menu.Item>
-             </Link>
-            <Link onClick='/register'>
-              <Menu.Item>
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to='/register'>
                 Register
-               </Menu.Item>
-            </Link>
+              </Link>
+            </Menu.Item>
           </Menu>
         )
       }
@@ -35,12 +47,8 @@ const Navbar = ({ user, handleLogout, history }) => {
       <Menu>
         <Link onClick='/'>
           <img src="https://res.cloudinary.com/dg1eqxvwf/image/upload/v1625945177/logo_jeiv9n.png"
-<<<<<<< HEAD
           width='130'
           length='30'
-=======
-          size='small'
->>>>>>> 7b9237f2268ab8e456c8ce87d3e6ec7c72e17aba
           />
         </Link>
         { rightNavItems()}
