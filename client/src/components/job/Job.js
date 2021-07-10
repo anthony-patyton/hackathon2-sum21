@@ -1,34 +1,34 @@
-import { Button, Header, Icon, Modal, setOpen, } from 'semantic-ui-react';
+import { Button, Header, Icon, Modal, setOpen } from 'semantic-ui-react';
 import { useState } from 'react';
-import TrackerForm from './TrackerForm';
+import JobForm from './JobForm';
 import { TrackerConsumer } from '../../providers/TrackerProvider';
 
-const TrackerShow = ({ location, match, deleteTracker, history }) => {
+const Job = ({ location, match, deleteJob, history }) => {
   const [editshow, setEditShow] = useState(false);
   const handleEditClose = () => setEditShow(false);
   const handleEditShow = () => setEditShow(true);
   return (
     <>
-      <h1>Tracker Show # {location.state.id}</h1>
+      <h1>Job Show # {location.state.id}</h1>
       {/* <h1>Checkout Show # {match.params.id}</h1> */}
       <p>
-        Steps Completed: {location.state.steps_taken}
+        Company: {location.state.company}
       </p>
       <p>
-        Application Completed: {location.state.applied_status}
+        Title Description: {location.state.title_desc}
       </p>
+      <a href={location.state.link_url}>
+        Job URL
+      </a>
       <p>
-        Interview Date: {location.state.interview_date}
-      </p>
-      <p>
-        Follow-Up Date: {location.state.follow_up}
+        End Date: {location.state.end_date}
       </p>
       <Button variant="warning" onClick={() => handleEditShow()}>Edit</Button>
       {' '}
-      <Button variant="danger" onClick={() => deleteTracker(match.params.id, history)}>Delete</Button>
+      <Button variant="danger" onClick={() => deleteJob(match.params.id, history)}>Delete</Button>
       
       <Modal
-        // show={editshow}
+        show={editshow}
         basic
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
@@ -41,7 +41,7 @@ const TrackerShow = ({ location, match, deleteTracker, history }) => {
 
           </Header>
           <Modal.Content>
-          <TrackerForm { ...location.state } handleEditClose={handleEditClose} />
+          <JobForm { ...location.state } handleEditClose={handleEditClose} />
           </Modal.Content>
           <Modal.Footer>
           <Button variant="secondary" onClick={handleEditClose}>
@@ -54,8 +54,8 @@ const TrackerShow = ({ location, match, deleteTracker, history }) => {
 }
 const ConnectedTrackerShow = (props) => (
   <TrackerConsumer>
-    { value => <TrackerShow {...props} {...value} /> }
+    { value => <Job {...props} {...value} /> }
   </TrackerConsumer>
 )
 
-export default ConnectedTrackerShow;
+export default ConnectedTrackerShow; 
