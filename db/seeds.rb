@@ -25,15 +25,4 @@
   end
 end
   
-  puts "Data seeded"
-  
-  # 1.times do
-  #   user = User.create(
-    #     name: Faker::FunnyName.name,
-    #     password: Faker::Internet.password(min_length: 8),
-    #     nickname: Faker::FunnyName.two_word_name,
-    #     image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-    #     email: Faker::Internet.email
-    
-    #   )
-  # end
+puts "Data seeded"
