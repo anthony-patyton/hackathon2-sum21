@@ -1,50 +1,50 @@
 import { Link, withRouter } from 'react-router-dom';
 import { AuthConsumer } from '../../providers/AuthProvider';
+import { Menu } from 'semantic-ui-react';
 
 const Navbar = ({ user, handleLogout, history }) => {
-
-  // show nav items base on login
-  const rightNavItems = () => {
-    if (user) {
-      // links that user see when logged in
-      return (
-        <>
-          <Link onClick={() => handleLogout(history) }>
-            Logout
-          </Link>
-        </>
-      )
-    } else {
-      // links the user see when not logged in
-      return (
-        <>
-          <Link to="/login">
-            Login
-          </Link>
-          <Link to="/register">
-            Register
-          </Link>
-        </>
-      )
+  
+    const rightNavItems = () => {
+      if (user) {
+        return(
+          <Menu position='right'>
+            <Link onClick={() => handleLogout(history) }>
+              Logout
+             </Link>           
+          </Menu>
+        )
+      } else {
+        return (
+          <Menu position='right'>
+            <Link onClick='/login'>
+               Login
+             </Link>
+            <Link onClick='/register'>
+               Register
+            </Link>
+          </Menu>
+        )
+      }
     }
+
+    return (
+      <Menu>
+        <Link onClick='/'>
+          <img src="https://res.cloudinary.com/dg1eqxvwf/image/upload/v1625945177/logo_jeiv9n.png"
+          size='small'
+          />
+        </Link>
+        { rightNavItems()}
+      </Menu>
+    )
   }
-  // show up regardless of logged in or not
-  return(
-    <nav>
-      <Link to="/">
-        Home
-      </Link>
-      { rightNavItems() }
-    </nav>
+
+  const ConnectedNavbar = (props) => (
+    <AuthConsumer>
+      { auth =>
+        <Navbar {...props} {...auth} />
+      }
+    </AuthConsumer>
   )
-}
 
-const ConnectedNavbar = (props) => (
-  <AuthConsumer>
-    { auth =>
-      <Navbar {...props} {...auth} />
-    }
-  </AuthConsumer>
-)
-
-export default withRouter(ConnectedNavbar);
+  export default withRouter(ConnectedNavbar);
