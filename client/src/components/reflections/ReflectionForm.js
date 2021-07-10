@@ -17,7 +17,7 @@ return(
         <Form.Group>
             <Form.Label>Summary of Experience</Form.Label>
             <Form.Control
-                placeholder="Overall good experience, but not a good fit"
+                placeholder="Ex: Overall good experience, but not a good fit."
                 type="text"
                 name="summary"
                 value={reflection.summary}
@@ -27,7 +27,7 @@ return(
         <Form.Group>
             <Form.Label>What I did great</Form.Label>
             <Form.Control
-                placeholder="Ex: I interviewed well.  Connected well with CIO"
+                placeholder="Ex: I interviewed well.  Connected well with CIO."
                 type="text"
                 name="did_right"
                 value={reflection.did_right}
@@ -41,7 +41,8 @@ return(
                 name="do_better"
                 value={reflection.do_better}
                 onChange={(e) => setReflection({...reflection, do_better: e.target.value})} />
-        </Form.Group>    
+        </Form.Group> 
+        <Button type='submit'>Done</Button>   
     </Form>
 
 )
