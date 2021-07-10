@@ -31,7 +31,7 @@ const ReflectionProvider = ({children}) => {
           }
           return r
         })
-        setRefections(updatedReflections)
+        setReflections(updatedReflections)
         history.push("/reflections")
       })
       .catch( err => console.log(err) )
