@@ -14,11 +14,6 @@ const Navbar = ({ user, handleLogout, history }) => {
               </Link>
             </Menu.Item>
             <Menu.Item>
-              <Link to="/">
-                Home
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
               <Link to="/jobs">
                 Jobs
               </Link>
@@ -45,10 +40,11 @@ const Navbar = ({ user, handleLogout, history }) => {
 
     return (
       <Menu>
-        <Link onClick='/'>
+        <Link to='/'>
           <img src="https://res.cloudinary.com/dg1eqxvwf/image/upload/v1625945177/logo_jeiv9n.png"
           width='130'
           length='30'
+          alt="arrow through tracker"
           />
         </Link>
         { rightNavItems()}

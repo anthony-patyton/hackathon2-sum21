@@ -11,11 +11,12 @@ const JobProvider = ({ children }) => {
   const [jobs, setJobs] = useState([])
   // useEffect( () => {
   const getAllJobs = () => {
-      axios.get('/api/jobs')
-          .then( res => {
-              setJobs(res.data)
-          })
-          .catch(err => console.log(err))
+    axios.get('/api/jobs')
+      .then( res => {
+          setJobs(res.data)
+          console.log(res.data)
+      })
+      .catch(err => console.log(err))
   }
   // }, [])
 
