@@ -3,7 +3,7 @@ import { useState } from 'react';
 import JobForm from './JobForm';
 import { TrackerConsumer } from '../../providers/TrackerProvider';
 
-const TrackerShow = ({ location, match, deleteJob, history }) => {
+const Job = ({ location, match, deleteJob, history }) => {
   const [editshow, setEditShow] = useState(false);
   const handleEditClose = () => setEditShow(false);
   const handleEditShow = () => setEditShow(true);
@@ -28,7 +28,7 @@ const TrackerShow = ({ location, match, deleteJob, history }) => {
       <Button variant="danger" onClick={() => deleteJob(match.params.id, history)}>Delete</Button>
       
       <Modal
-        // show={editshow}
+        show={editshow}
         basic
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
@@ -54,7 +54,7 @@ const TrackerShow = ({ location, match, deleteJob, history }) => {
 }
 const ConnectedTrackerShow = (props) => (
   <TrackerConsumer>
-    { value => <TrackerShow {...props} {...value} /> }
+    { value => <Job {...props} {...value} /> }
   </TrackerConsumer>
 )
 
