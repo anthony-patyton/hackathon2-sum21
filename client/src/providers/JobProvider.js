@@ -63,4 +63,4 @@ const JobProvider = ({ children }) => {
       </JobContext.Provider>
   )
 }
-export default JobProvider;
+export default JobProvider; 

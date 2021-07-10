@@ -1,4 +1,4 @@
-import { Button, Header, Icon, Modal } from 'semantic-ui-react';
+import { Button, Header, Icon, Modal, setOpen, } from 'semantic-ui-react';
 import { useState } from 'react';
 import TrackerForm from './TrackerForm';
 import { TrackerConsumer } from '../../providers/TrackerProvider';
