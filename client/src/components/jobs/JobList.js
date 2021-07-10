@@ -4,7 +4,7 @@ import { Container, Header } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import Job from './Job';
 
-const JobList = ({ job, getAllJobs }) => {
+const JobList = ({ jobs, getAllJobs }) => {
   useEffect( () => {
     getAllJobs()
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -15,7 +15,7 @@ const JobList = ({ job, getAllJobs }) => {
       <Container textAlign="center">
         <Header>Job</Header>
         <Job />
-        { job.map( j => 
+        { jobs.map( j => 
           <Link to={{
             pathname: `/job/${j.id}`,
             state: { ...j }

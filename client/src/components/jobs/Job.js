@@ -1,7 +1,7 @@
-import { Button, Header, Icon, Modal, setOpen } from 'semantic-ui-react';
+import { Button, Modal,} from 'semantic-ui-react';
 import { useState } from 'react';
 import JobForm from './JobForm';
-import { TrackerConsumer } from '../../providers/TrackerProvider';
+import JobConsumer from '../../providers/JobProvider';
 
 const Job = ({ location, match, deleteJob, history }) => {
   const [editshow, setEditShow] = useState(false);
@@ -26,24 +26,16 @@ const Job = ({ location, match, deleteJob, history }) => {
       <Button variant="warning" onClick={() => handleEditShow()}>Edit</Button>
       {' '}
       <Button variant="danger" onClick={() => deleteJob(match.params.id, history)}>Delete</Button>
-      
-      <Modal
-        show={editshow}
-        basic
-        onClose={() => setOpen(false)}
-        onOpen={() => setOpen(true)}
-        open={open}
-        size='small'
-        trigger={<Button>Basic Modal</Button>}
-        >
-          <Header icon>
-            <Icon name='archive' />
-
-          </Header>
-          <Modal.Content>
+      <Modal show={editshow} onHide={handleEditClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            Job Show # {location.state.id} Edit
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
           <JobForm { ...location.state } handleEditClose={handleEditClose} />
-          </Modal.Content>
-          <Modal.Footer>
+        </Modal.Body>
+        <Modal.Footer>
           <Button variant="secondary" onClick={handleEditClose}>
             Close
           </Button>
@@ -53,9 +45,9 @@ const Job = ({ location, match, deleteJob, history }) => {
   )
 }
 const ConnectedTrackerShow = (props) => (
-  <TrackerConsumer>
+  <JobConsumer>
     { value => <Job {...props} {...value} /> }
-  </TrackerConsumer>
+  </JobConsumer>
 )
 
 export default ConnectedTrackerShow; 
