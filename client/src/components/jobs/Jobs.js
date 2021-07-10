@@ -4,9 +4,9 @@ import JobList from './JobList';
 const Jobs = () => (
   <>
     <Header>
-      All Jobs
-    <JobList />
+      Job Page
     </Header>
+    <JobList />
   </>
 )
 
