@@ -17,8 +17,8 @@ const App = () => (
         <ProtectedRoute exact path='/' component={Home} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
-        <Route exact path='/jobs' component={Jobs} />
-        <Route exact path='/jobform' component={JobForm} />
+        <ProtectedRoute exact path='/jobs' component={Jobs} />
+        <ProtectedRoute exact path='/jobform' component={JobForm} />
         <Route component={Nomatch} />
       </Switch>
     </FetchUser>

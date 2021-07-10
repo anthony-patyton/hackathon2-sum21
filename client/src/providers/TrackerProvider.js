@@ -26,7 +26,7 @@ const TrackerProvider = ({children}) => {
     axios.put(`/api/jobs/${jobId}/trackers/${id}`, {tracker} )
       .then( res => {
         const updatedTrackers = trackers.map( t => {
-          if (trackers.id == id) {
+          if (trackers.id === id) {
             return res.data
           }
           return t
