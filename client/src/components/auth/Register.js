@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AuthConsumer } from "../../providers/AuthProvider";
+import { BackgroundStyles } from '../styledComponents/sharedStyles';
 
 const Register = ({ handleRegister, history }) => {
   const [user, setUser] = useState({ email: '', password: '', passwordConfirmation: '', name: '' }) 
@@ -15,6 +16,7 @@ const Register = ({ handleRegister, history }) => {
   
   return (
     <>
+    <BackgroundStyles>
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
         <input
@@ -44,6 +46,7 @@ const Register = ({ handleRegister, history }) => {
         />
         <button type='submit'>Submit</button>
       </form>
+      </BackgroundStyles>
     </>
   )
 }
